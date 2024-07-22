@@ -8,9 +8,8 @@ pipeline {
         }
         stage('Run') {
             steps {
-               sh 'python3 main.py'
+               sh 'python3 main.py > output.txt'
             }
-        }
-        
+        }        
     }
 }
