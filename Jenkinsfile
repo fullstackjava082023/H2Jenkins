@@ -13,16 +13,14 @@ pipeline {
             // when {
             //     expression { params.DRY_RUN == false }
             // }
-            if (params.DRY_RUN == false) {
-                steps {
+            steps {
+                if (params.DRY_RUN == "false") {
                     sh 'python3 main.py'
-                }
-            } else {
-                steps {
+                } else {
                     sh 'echo "Dry run"'
                 }
             }
-            
+
         }        
     }
 }
