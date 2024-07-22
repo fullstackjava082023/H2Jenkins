@@ -10,17 +10,15 @@ pipeline {
             }
         }
         stage('Run') {
-            // when {
-            //     expression { params.DRY_RUN == false }
-            // }
             steps {
-                if (params.DRY_RUN == "false") {
-                    sh 'python3 main.py'
-                } else {
-                    sh 'echo "Dry run"'
+                script {
+                    if (params.DRY_RUN == false) {
+                        sh 'python3 main.py'
+                    } else {
+                        sh 'echo "Dry run"'
+                    }
                 }
             }
-
         }        
     }
 }
