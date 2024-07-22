@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        booleanParam(defaultValue: false, description: 'dry run?', name: 'DRY_RUN')
+    }
     stages {
         stage('Get code from github') {
             steps {
