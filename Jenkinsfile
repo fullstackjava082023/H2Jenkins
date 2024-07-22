@@ -10,6 +10,9 @@ pipeline {
             }
         }
         stage('Run') {
+            when {
+                expression { params.DRY_RUN == false }
+            }
             steps {
                sh 'python3 main.py > output.txt'
             }
